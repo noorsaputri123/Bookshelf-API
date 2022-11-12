@@ -160,3 +160,74 @@
 
 
 // module.exports = {addBookHandler, getAllBooksHandler, getBookByIdHandler, deleteBookByIdHandler, editbookByIdHandler};
+
+
+
+                        // const editbookByIdHandler = (request, h) => {
+                        //     const { id } = request.params;
+                        //     const { name,year,author,summary,publisher,pageCount,readPage,reading } = request.payload;
+                        //     const updatedAt = new Date().toISOString();
+                        //     if (pageCount === readPage){
+                        //         finished = true;
+                        //     }
+                        //     if (readPage > pageCount){
+                        //         const response =h.response(
+                        //             {
+                        //                 status : 'fail',
+                        //                 message : 'Gagal memperbarui buku. readPage tidak boleh lebih besar dari pageCount',
+                        //             }
+                        //         );
+                        //     }
+                        //     if (name === undefined){
+                        //         const response = h.response({
+                        //             status : 'fail',
+                        //             message : 'Gagal memperbarui buku. Mohon isi nama buku'
+                        //         });
+
+                        //     }
+
+                        //     const index = books.findIndex((book) => book.id === id);
+
+                        //     if (index !== -1) {
+                        //         books[index] = {
+                        //           ...books[index],
+                        //           name,year,author,summary,publisher,pageCount,reasPage,reading,
+                        //           updatedAt,
+                        //         };
+                        //         const response = h.response({
+                        //           status: 'success',
+                        //           message: 'Buku berhasil diperbarui',
+                        //         });
+                        //         response.code(200);
+                        //         return response;
+                        //       }
+                        //       const response = h.response({
+                        //         status: 'fail',
+                        //         message: 'Gagal memperbarui Buku. Id tidak ditemukan',
+                        //       });
+                        //       response.code(404);
+                        //       return response;
+                        // };
+
+
+
+                        //post
+                        // const isName = books.filter((book) => book.name === "undefined");
+                        //         const isreadPage = books.filter((book) => book.readPage > book.pageCount);
+
+                        //         if (isName.length > 0) {
+                        //             const response = h.response({
+                        //                 status : 'fail',
+                        //                 message : "Gagal menambahkan buku. Mohon isi nama buku",
+                        //             });
+                        //             response.code(400);
+                        //             return response;
+                        //         }
+                        //         if(isreadPage.length > 0){
+                        //             const response = h.response({
+                        //                 status : 'fail',
+                        //                 message : 'Gagal menambahkan buku. readPage tidak boleh lebih besar dari pageCount',
+                        //             });
+                        //             response.code(400);
+                        //             return response; 
+                        //         }
