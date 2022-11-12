@@ -2,7 +2,6 @@
 const { nanoid } = require('nanoid');
 const books = require('./books');
 
-
                                 const addBookHandler = (Request, h) => {
                                 const { name,year,author,summary,publisher,pageCount,readPage,reading } = Request.payload;
                                 const id = nanoid(16);
@@ -10,15 +9,6 @@ const books = require('./books');
                                 const updatedAt = insertedAt;
                                 const finished =(pageCount === readPage);
                                 const newBook = {id, name,year, author,summary,publisher,pageCount,readPage,finished,reading,insertedAt,updatedAt,};   
-                                
-                                if (name === undefined){
-                                    const response = h.response({
-                                        status: 'fail',
-                                        message : 'Gagal menambahkan buku. Mohon isi nama buku',
-                                    });
-                                    response.code(400);
-                                    return response;
-                                }
                                 if (readPage>pageCount){
                                     const response = h.response({
                                         status:'fail',
@@ -28,6 +18,14 @@ const books = require('./books');
                                     response.code(400);
                                     return response;
                                 }
+                                if (name === undefined){
+                                    const response = h.response({
+                                        status: 'fail',
+                                        message: 'Gagal menambahkan buku. Mohon isi nama buku',
+                                    });
+                                    response.code(400);
+                                    return response;
+                                } 
                                 books.push(newBook);
                                 const isSuccess = books.filter((book) => book.id === id).length > 0;                            
                                     if (isSuccess) {
@@ -40,8 +38,7 @@ const books = require('./books');
                                         });
                                         response.code(201);
                                         return response;
-                                    }
-
+                                    }   
                                     
                                     const response = h.response({
                                         status: 'error',
@@ -52,6 +49,10 @@ const books = require('./books');
                                     
                                 };
                             
+
+
+
+
                                         const editbookByIdHandler = (request, h) => {
                                         const { id } = request.params;
                                         const { name,year,author,summary,publisher,pageCount,readPage,reading} = request.payload;
@@ -104,6 +105,9 @@ const books = require('./books');
 
 
 
+
+
+
                             const deleteBookByIdHandler = (request, h) => {
                                 const { id } = request.params;          
                                 const index = books.findIndex((book) => book.id === id);
@@ -123,6 +127,9 @@ const books = require('./books');
                                 response.code(404);
                                 return response;
                             };
+
+
+
 
 
 
@@ -200,6 +207,10 @@ const books = require('./books');
                                 response.code(200);
                                 return response;
                             };
+
+
+
+
                         
                             const getBookByIdHandler = (request, h) => {
                                 const { id } = request.params;
