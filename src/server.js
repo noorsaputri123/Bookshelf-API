@@ -1,7 +1,7 @@
 const Hapi = require('@hapi/hapi');
 const routes = require('./routes');
 
-
+//by Noor Saputri
     const init = async () => {
       const server = Hapi.server({
             port: 5000,
